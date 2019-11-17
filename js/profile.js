@@ -4,7 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
         async function getProfile() {
             if (user) {
                 let token = user.token;
-                let r = await fetch('http://localhost:8080/congnizantp2_war/profile', {
+                // let r = await fetch('http://localhost:8080/congnizantp2_war/profile', {
+                let r = await fetch('http://localhost:8080/users/profile', {
                     method: "GET",
                     headers: {
                         'Content-Type': 'application/json',

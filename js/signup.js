@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
           passwordConfirm !== "" &&
           password === passwordConfirm
       ) {
+        console.log("everythings matches")
         // fetch("http://localhost:8080/congnizantp2_war/user/signup", {
         fetch("http://localhost:8080/users/create", {
           headers: {
@@ -24,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
           },
           method: "POST",
           body: JSON.stringify({
+            email: `${email}`,
             password: `${password}`,
             username: `${username}`
           })
@@ -31,38 +33,40 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(res => res.json())
             .then(res => {
               localStorage.setItem("foodieUser",JSON.stringify(res));
-              creatProfile(res.token);
+              createProfile(res.token);
             })
             .catch(res => {
               console.log("Error:" + res);
             });
+            console.log(localStorage)
       }
       else{
         alert("please enter again!");
       }
     })();
 
-    // function creatProfile(token) {
-    //   fetch("http://localhost:8080/congnizantp2_war/profile", {
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       'Authorization': `Bearer ${token}`
-    //     },
-    //     method: "POST",
-    //     body: JSON.stringify({
-    //       "email" : addtionalEmail,
-    //       "mobile" : mobile,
-    //       "address" : address
-    //     })
-    //   })
-    //       .then(res => {
-    //         if (res.status === 200){
-    //           window.location.href = 'index.html'
-    //         }
-    //       })
-    //       .catch(res => {
-    //         console.log("Error:" + res);
-    //       });
-    // }
+    function createProfile(token) {
+      // fetch("http://localhost:8080/congnizantp2_war/profile", {
+      fetch("http://localhost:8080/users/profile", {
+        headers: {
+          "Content-Type": "application/json",
+          'Authorization': `Bearer ${token}`
+        },
+        method: "POST",
+        body: JSON.stringify({
+          "email" : addtionalEmail,
+          "mobile" : mobile,
+          "address" : address
+        })
+      })
+          .then(res => {
+            if (res.status === 200){
+              window.location.href = 'index.html'
+            }
+          })
+          .catch(res => {
+            console.log("Error:" + res);
+          });
+    }
   });
 });
