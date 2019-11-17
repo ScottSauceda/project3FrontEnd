@@ -250,7 +250,7 @@ function createPost() {
         },
         body: JSON.stringify({
             "title": title,
-            "postText": desc
+            "description": desc
         })
     }).then(r => {
         if (r.status === 200) {
