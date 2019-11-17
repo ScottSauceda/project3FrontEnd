@@ -1,0 +1,400 @@
+Project 2 endpoints and returns
+MAIN.js
+    POST
+    USER LOGIN
+    http://localhost:8080/congnizant_p2_war/user/login/
+        Authorization:
+            none
+
+        request body:
+            {
+                "username" : "myUser",
+                "password" : "myPassword9"
+            }  
+
+        response header:
+            Status: 200 OK
+            
+        response  body:
+            {
+                "username": "myUser",
+                "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteVVzZXIiLCJleHAiOjE1NzIwMTkyMjcsImlhdCI6MTU3MTkzMjgyN30.Z9fh-cPXaVLAD9_I3k2w9JYn69lup6PrjtuxRIbUCkwUBHmzsIzhKKaO0sF8hkFJM1tWN61KrkQLl3fYhV9ZZQ"
+            }
+
+    GET
+    LIST ALL POST
+    http://localhost:8080/congnizant_p2_war/post/list
+        Authorization:
+            none
+
+        request body:
+            none
+
+        response header:
+            Status: 200 OK
+
+        response  body:
+            [
+                {
+                    "postId": 1,
+                    "title": "1 title for my post",
+                    "postText": "1 My super important post.",
+                    "userName": "might"
+                },
+                {
+                    "postId": 2,
+                    "title": "1 title for my post",
+                    "postText": "1 My super important post.",
+                    "userName": "fright"
+                },
+                {
+                    "postId": 3,
+                    "title": "1 title for my post",
+                    "postText": "1 My super important post.",
+                    "userName": "fright"
+                },
+                {
+                    "postId": 5,
+                    "title": "my post title",
+                    "postText": "my post text",
+                    "userName": "might"
+                },
+                {
+                    "postId": 4,
+                    "title": "1 title for my post",
+                    "postText": "my edited post text",
+                    "userName": "fright"
+                }
+            ]
+
+    GET
+    SEE COMMENTS BY POST
+    http://localhost:8080/congnizant_p2_war/post/{postId}/comment/
+        Authorization:
+            none
+
+        request body:
+            none
+
+        response header:
+            Status: 200 OK
+
+        response  body:
+            [
+                {
+                    "commentId": 1,
+                    "commentText": "Super Post Comment",
+                    "username": "might",
+                    "postTitle": "1 title for my post",
+                    "postid": "1"
+                },
+                {
+                    "commentId": 4,
+                    "commentText": "Super Fright Post Comment",
+                    "username": "fright",
+                    "postTitle": "1 title for my post",
+                    "postid": "1"
+                },
+                {
+                    "commentId": 2,
+                    "commentText": "Super Re-Edited Comment",
+                    "username": "fright",
+                    "postTitle": "1 title for my post",
+                    "postid": "1"
+                }
+            ]
+
+    GET
+    GET POST BY USER
+    http://localhost:8080/congnizant_p2_war/post/
+        Authorization:
+            Bearer Token: Token
+        
+        request body:
+            none
+
+        response header:
+            Status: 200 OK
+
+        response  body:
+            [
+                {
+                    "postId": 6,
+                    "title": "myUser Post Title",
+                    "postText": "myUser Post Text",
+                    "userName": "myUser"
+                }
+            ]
+        
+    POST
+    ADD POST
+    http://localhost:8080/congnizant_p2_war/post
+        Authorization:
+            Bearer Token: Token
+
+        request body:
+            {
+                "title" : "myUser Post Title",
+                "postText" : "myUser Post Text"
+            }
+        response header:
+            Status: 200 OK
+
+        response  body:
+            {
+                "postId": 6,
+                "title": "myUser Post Title",
+                "postText": "myUser Post Text",
+                "userName": "myUser"
+            }
+
+
+    POST
+    ADD COMMENT TO POST
+    http://localhost:8080/congnizant_p2_war/comment/{postId}
+    Authorization:
+            Bearer Token: Token
+
+        request body:
+            {
+                "commentText" : "Might comment on post"
+            }
+
+        response header:
+            Status: 200 OK
+
+        response  body:
+            {
+                "commentId": 1,
+                "commentText": "Some edited text by might",
+                "username": "might",
+                "postTitle": "1 title for my post",
+                "postid": "1"
+            }
+
+
+
+    DELETE
+    DELETE POST
+    http://localhost:8080/congnizant_p2_war/post/{postId}
+        Authorization:
+            Bearer Token: Token
+
+        request body:
+            none
+
+        response header:
+            Status: 200 OK
+
+        response  body:
+            {postId}
+
+    DEL
+    DELETE COMMENT
+    http://localhost:8080/congnizant_p2_war/comment/{id}
+        Authorization:
+            Bearer Token: Token
+
+        request body:
+            none
+
+        response header:
+            Status: 200 OK
+
+        response  body:
+            {id}
+
+###################################################################
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++            
+###################################################################
+
+SIGNUP.js
+    POST
+    USER SIGNUP
+    http://localhost:8080/congnizant_p2_war/user/signup
+        Authorization:
+            none
+
+        request body:
+            {
+                "username" : "myUser",
+                "password" : "myPassword9"
+            } 
+
+        response header:
+            Status: 200 OK
+            
+        response  body:
+            {
+                "username": "myUser",
+                "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteVVzZXIiLCJleHAiOjE1NzIwMTkxMzAsImlhdCI6MTU3MTkzMjczMH0.3j4YpkvdiAkLBpW5PI1aBYZw1Uhf97gm67BwcNFFN0_pWIoZgrMt9xga1ximg1Xt-fMq5-v2ifE8B8sWTMP0EA"
+            }
+
+    POST
+    CREATE USER PROFILE
+    http://localhost:8080/congnizant_p2_war/profile/
+        Authorization:
+            Bearer Token: Token
+    
+        request body:
+            {
+                "address": "123 Fake Street",
+                "email": "myfake@email.com",
+                "mobile": "123-123-1234"
+            }
+
+        response header:
+            Status: 200 OK
+
+        response  body:
+            {
+                "address": "123 Fake Street",
+                "email": "myfake@email.com",
+                "mobile": "123-123-1234"
+            }
+
+
+###################################################################
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++            
+###################################################################
+
+PROFLIE.js
+    GET
+    GET USER PROFILE
+    http://localhost:8080/congnizant_p2_war/profile/
+        Authorization:
+            Bearer Token: Token 
+
+        request body:
+            none
+
+        response header:
+            Status: 200 OK
+
+        response  body:
+            {
+                "email": "myfake@email.com",
+                "mobile": "123-123-1234",
+                "address": "123 Fake Street"
+            }
+        
+        
+    PUT
+    EDIT USER PROFILE
+    http://localhost:8080/congnizant_p2_war/profile/
+        Authorization:
+            Bearer Token: Token
+    
+        request body:
+            {
+                "address": "123 Fake Street",
+                "email": "myfake@email.com",
+                "mobile": "123-123-1234"
+            }
+
+        response header:
+            Status: 200 OK
+
+        response  body:
+            {
+                "email": "myfake@editedemail.com",
+                "mobile": "456-123-1234",
+                "address": "456 Fake Street"
+            }
+
+
+###################################################################
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++            
+###################################################################
+
+UNUSED ROUTES
+
+PUT
+RESET USER PASSWORD
+http://localhost:8080/congnizant_p2_war/user/reset/
+    Authorization:
+        Bearer Token: Token 
+
+    request body:
+        {
+	        "password" : "123"
+        }
+
+    response header:
+        Status: 200 OK
+
+    response  body:
+        {
+            "username": "myUser",
+            "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteVVzZXIiLCJleHAiOjE1NzIwMTkyMjcsImlhdCI6MTU3MTkzMjgyN30.Z9fh-cPXaVLAD9_I3k2w9JYn69lup6PrjtuxRIbUCkwUBHmzsIzhKKaO0sF8hkFJM1tWN61KrkQLl3fYhV9ZZQ"
+        }
+
+
+
+    
+PUT
+EDIT POST
+http://localhost:8080/congnizant_p2_war/post/{postId}
+    Authorization:
+        Bearer Token: Token
+
+    request body:
+        {
+            "postText" : "my edited post text for might"
+        } 
+
+    response header:
+        Status: 200 OK
+
+    response  body:
+        {
+            "postId": 5,
+            "title": "my post title",
+            "postText": "my edited post text for might",
+            "userName": "might"
+        }
+    
+    
+    
+GET
+SEE COMMENTS BY USER
+http://localhost:8080/congnizant_p2_war/post/
+    Authorization:
+        Bearer Token: Token
+
+    request body:
+        none 
+
+    response header:
+        Status: 200 OK
+
+    response  body:
+        [
+            {
+                "commentId": 1,
+                "commentText": "Some edited text by might",
+                "username": "might",
+                "postTitle": "1 title for my post",
+                "postid": "1"
+            }
+        ]
+
+    
+POST
+COMMENT ON POST
+http://localhost:8080/congnizant_p2_war/post/1/comment/
+    Authorization:
+        Bearer Token: Token
+
+    request body:
+        {
+	        "commentText" : "Might comment on post"
+        }
+
+    response header:
+        Status: 200 OK
+
+    response  body:
+        {
+            
+        }

@@ -1,0 +1,239 @@
+Project 3 endpoints and retuns
+MAIN.js
+    POST
+    USERS LOGIN
+    http://localhost:8080/users/login
+        Authorization:
+            none
+            
+        request body:
+            {
+                "email": "super3@mail.com",
+                "password": "123"
+            }  
+
+        response header:
+            Status: 200 OK
+
+        response  body:
+            {
+                "username": "myUser",
+                "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteVVzZXIiLCJleHAiOjE1NzIwMTkyMjcsImlhdCI6MTU3MTkzMjgyN30.Z9fh-cPXaVLAD9_I3k2w9JYn69lup6PrjtuxRIbUCkwUBHmzsIzhKKaO0sF8hkFJM1tWN61KrkQLl3fYhV9ZZQ"
+            }
+
+        GET
+        LIST ALL POST
+        http://localhost:8080/posts/all
+            Authorization:
+                none
+
+            request body:
+                none
+
+            response header:
+                Status: 200 OK
+
+            response body :
+                [
+                    {
+                        "id": 1,
+                        "title": "dimmy dome title",
+                        "description": "dimmy dome description",
+                        "userId": 2
+                    }
+                ]
+
+
+        GET
+        SEE COMMENTS BY POST
+        http://localhost:8080/comments/view/post/{postId}
+            Authorization:
+                none
+
+            request body:
+                none
+
+            response header:
+                Status: 200 OK
+
+            response  body:
+                [
+                    {
+                        "id": 3,
+                        "text": "comment text",
+                        "userId": 2,
+                        "postId": 2
+                    }
+                ]
+
+        GET
+        GET POST BY USER
+        http://localhost:8080/posts/view/user
+            Authorization:
+                Bearer Token: Token
+        
+            request body:
+                none
+
+            response header:
+                Status: 200 OK
+
+            responst body:
+                [
+                    {
+                        "id": 1,
+                        "title": "dimmy dome title",
+                        "description": "dimmy dome description",
+                        "userId": 2
+                    },
+                    {
+                        "id": 2,
+                        "title": "dimmy dome title",
+                        "description": "dimmy dome description",
+                        "userId": 2
+                    }
+                ]
+
+        POST
+        ADD POST
+        http://localhost:8080/posts/create
+            Authorization:
+                Bearer Token: Token
+
+            request body:
+                {
+                    "title": "dimmy dome title",
+                    "description": "dimmy dome description"
+                }
+
+            response header:
+                Status: 200 OK
+
+            response body:
+                "OK"
+
+
+
+
+        POST
+        ADD COMMENT TO POST
+        http://localhost:8080/comments/create
+            Authorization:
+                Bearer Token: Token
+
+            request body:
+            {
+                "text" : "comment text",
+                "postId" : 2
+            } 
+        
+            response header:
+                Status: 200 OK
+
+            response body:
+                "OK"
+
+
+        DELETE
+        DELETE POST
+        http://localhost:8080/posts/delete/{postId}
+            Authorization:
+                Bearer Token: Token
+            
+            request body:
+                none
+
+            response header:
+                Status: 200 OK
+            
+
+            response body:
+                _________
+
+
+        DELETE
+        DELETE COMMENT
+        http://localhost:8080/comments/delete/{commentid} 
+            Authorization:
+                Bearer Token: Token
+            
+            request body:
+                none
+
+            response header:
+                Status: 200 OK
+
+            response body:
+                _________
+
+SIGNUP.js
+    signup
+    POST
+    USERS SIGNUP
+    http://localhost:8080/users/create
+        Authorization:
+            none
+
+        request body:
+            {
+                "email" : "super3@mail.com",
+                "password" : "123",
+                "username" : "super3"
+            } 
+
+        response header:
+            Status: 200 OK
+
+        response  body:
+            {
+                "username": "super3",
+                "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXBlcjMiLCJleHAiOjE1NzM5MzY0NzIsImlhdCI6MTU3MzkxODQ3Mn0.Mjulzmt0-l-HVWM77vByRcau-jYpp3r76JUj7ei0eu5FzvpCCCibDxnANR-lNTTobeVmnv2I-rdAHaBui_Z49w"
+            }
+
+    POST
+    CREATE USER PROFILE
+    ___________________
+        Authorization:
+            Bearer Token: Token
+
+        request body:
+            _________
+
+        response header:
+            Status: 200 OK
+
+        response  body:
+            _________
+
+PROFILE.js
+    GET
+    GET USER PROFILE
+    _________
+        Authorization:
+            Bearer Token: Token
+
+        request body:
+            _________
+
+        response header:
+            Status: 200 OK
+
+        response  body:
+            _________
+
+
+
+    PATCH
+    EDIT USER PROFILE
+    _________
+        Authorization:
+            Bearer Token: Token
+
+        request body:
+            _________
+
+        response header:
+            Status: 200 OK
+
+        response  body:
+            _________

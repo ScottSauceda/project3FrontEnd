@@ -1,0 +1,40 @@
+MAIN.js
+    login
+        'http://localhost:8080/users/login'
+
+    list post
+        'http://localhost:8080/congnizantp2_war/post/list'
+
+    list comments by post
+        `http://localhost:8080/congnizantp2_war/post/${posts[i].postId}/comment`
+
+    list post by user
+        'http://localhost:8080/congnizantp2_war/post'
+
+    create post
+        'http://localhost:8080/congnizantp2_war/post'
+
+    comment on post
+        'http://localhost:8080/congnizantp2_war/comment/${postId}'
+
+    delete post
+        'http://localhost:8080/congnizantp2_war/post/${id}'
+
+    delete comment
+        'http://localhost:8080/congnizantp2_war/comment/${id}' 
+
+SIGNUP.js
+    signup
+        'http://localhost:8080/congnizantp2_war/user/signup'
+
+    createprofile
+        'http://localhost:8080/congnizantp2_war/profile'
+
+PROFILE.js
+    get profile
+        'http://localhost:8080/congnizantp2_war/profile'
+
+    update profile
+        'http://thesi.generalassemb.ly:8080/profile'
+
+        ??http://localhost:8080/congnizant_p2_war/profile/??
