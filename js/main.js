@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                         <p>
                         ${
             user && user.username === post.username ?
-                '<a class="float-right text-white btn btn-danger ml-2 deletePostButton mb-sm-2" onclick="deletePost(this)" id="post-' + post.postId + '">Delete Post</a>'
+                '<a class="float-right text-white btn btn-danger ml-2 deletePostButton mb-sm-2" onclick="deletePost(this)" id="post-' + post.id + '">Delete Post</a>'
                 : ''
         }
                         
@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                                 <p>
                                 ${
             user && user.username === comment.username ?
-                '<a class="float-right btn text-white btn-danger deleteCommentButton" onclick="deleteComment(this)" id="comment-' + comment.commentId + '">Delete Comment</a>'
+                '<a class="float-right btn text-white btn-danger deleteCommentButton" onclick="deleteComment(this)" id="comment-' + comment.id + '">Delete Comment</a>'
                 : ''
         }
                                 </p>
