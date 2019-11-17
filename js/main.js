@@ -222,7 +222,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     async function validateToken() {
         if (user) {
             let token = user.token;
-            let r = await fetch('http://localhost:8080/congnizantp2_war/post', {
+            // let r = await fetch('http://localhost:8080/congnizantp2_war/post', {
+            let r = await fetch('http://localhost:8080/posts/view/user', {
                 method: "GET",
                 headers: {
                     'Content-Type': 'application/json',

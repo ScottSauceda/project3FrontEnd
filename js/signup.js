@@ -17,7 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
           passwordConfirm !== "" &&
           password === passwordConfirm
       ) {
-        fetch("http://localhost:8080/congnizantp2_war/user/signup", {
+        // fetch("http://localhost:8080/congnizantp2_war/user/signup", {
+        fetch("http://localhost:8080/users/create", {
           headers: {
             "Content-Type": "application/json"
           },
