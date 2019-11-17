@@ -208,11 +208,11 @@ document.addEventListener("DOMContentLoaded", async function () {
         <div class="input-group-prepend">
             <span class="input-group-text">Comment</span>
          </div>
-        <textarea class="form-control" aria-label="With textarea" id="comment-text-area-${post.postId}"></textarea>
+        <textarea class="form-control" aria-label="With textarea" id="comment-text-area-${post.id}"></textarea>
     </div>
   
     <div>
-        <button id = "post-button-${post.postId}" class="btn btn-primary mt-sm-4 float-right" onclick="postComment(this)">Comment</button>
+        <button id = "post-button-${post.id}" class="btn btn-primary mt-sm-4 float-right" onclick="postComment(this)">Comment</button>
 
     </div>
     <div class="clearfix"></div>
@@ -263,17 +263,18 @@ function createPost() {
 function postComment(post) {
     console.log(post);
     let postId = post.id.split('-')[2];
-    let commentText = document.getElementById(`comment-text-area-${postId}`).value;
+    console.log(postId)
+    let text = document.getElementById(`comment-text-area-${postId}`).value;
     let user = JSON.parse(localStorage.getItem('foodieUser'));
     // fetch(`http://localhost:8080/congnizantp2_war/comment/${postId}`, {
-    fetch(`http://localhost:8080/comments/view/post/${postId}`, {
+    fetch(`http://localhost:8080/comments/create/${postId}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${user.token}`
         },
         body: JSON.stringify({
-            "commentText": commentText
+            "text": text
         })
     }).then(r => {
         if (r.status === 200) {
